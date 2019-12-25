@@ -31,11 +31,10 @@ public class Rules {
 
     //ADD_TWO, ADD_FOUR, CHOOSE_COLOR, SKIP_TURN, REVERSE;
     public void AddCard(SpecialCard card, Player player, Deck deck) {
-        List<Card> playerCards = player.getCards();
         if (card.getActions().equals(Actions.ADD_TWO)) {
-            deck.DrawCard(playerCards, 2);
+            deck.DrawCard(player.getCards(), 2);
         } else if (card.getActions().equals(Actions.ADD_FOUR)) {
-            deck.DrawCard(playerCards, 4);
+            deck.DrawCard(player.getCards(), 4);
         }
     }
 
@@ -80,6 +79,12 @@ public class Rules {
     }
 
     //if player has 0 cards then wins
+    public void Winner(Player player) {
+        if (player.getCards().isEmpty()) {
+            System.out.println(player.getName() + " win!");
+            //end game method
+        }
+    }
     
 //Color
     public boolean CheckColor(Card card) {
