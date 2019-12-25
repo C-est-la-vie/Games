@@ -3,6 +3,16 @@ import java.util.Scanner;
 
 public class Rules {
     // Action’s rules.
+
+    public void checkAction(SpecialCard card, Player player, Deck deck) {
+        if (card.getActions().equals(Actions.ADD_TWO) || card.getActions().equals(Actions.ADD_FOUR)) {
+            AddCard(card, player, deck);
+        } else if (card.getActions().equals(Actions.CHOOSE_COLOR)) {
+            ChooseColor(card);
+        } else if (card.getActions().equals(Actions.REVERSE)) {
+            ChangeTurns(card);
+        }
+    }
     //ADD_TWO, ADD_FOUR, CHOOSE_COLOR, SKIP_TURN, REVERSE;
     public void AddCard(SpecialCard card, Player player, Deck deck) {
         List<Card> playerCards = player.getCards();
