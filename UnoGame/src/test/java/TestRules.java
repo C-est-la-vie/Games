@@ -121,16 +121,16 @@ public class TestRules {
     public void CheckColorTest() {
         Card card1 = new Card();
         card1.setColor("red");
-        game.setRuleColor("blue");
+        game.getLastCard().setColor("blue");
         rule.CheckColor(card1);
 
     }
-
+//TODO: Failed test
     @Test
     public void CheckColorSameTest() {
         Card card1 = new Card();
         card1.setColor("red");
-        game.setRuleColor("red");
+        game.getLastCard().setColor("red");
         rule.CheckColor(card1);
 
     }
