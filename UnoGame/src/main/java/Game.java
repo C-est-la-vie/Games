@@ -113,7 +113,7 @@ public class Game {
     }
 
     //Play Card
-    public void PlayCard() {
+    private void PlayCard() {
         ShowPlayerCard();
         Scanner input = new Scanner(System.in);
         if (player.getTurn()) {
@@ -130,7 +130,7 @@ public class Game {
 
     }
 // CheckArrayBoundary
-    public void CheckArrayBoundary(int number) {
+    private void CheckArrayBoundary(int number) {
         if (number < 0 || number >= player.getCards().size()){
             System.out.print("\n "+ number +"is not a valid number");
             PlayCard();
@@ -148,7 +148,7 @@ public class Game {
     }
 
     // Create player.
-    public void CreatePlayer(String name, Deck deck) {
+    private void CreatePlayer(String name, Deck deck) {
         player = new Player(name, deck.StartCard());
         robot = new Player("robot", deck.StartCard());
     }
