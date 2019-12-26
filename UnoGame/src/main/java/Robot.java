@@ -1,7 +1,7 @@
 public class Robot extends Player {
     //check the rulecolor
     public int checkRuleColor(Game game, Robot robot) {
-        Card card = game.getRuleCard();
+        Card card = game.getLastCard();
         // counter. Count how many cards of that color you have.
         int colorCount = 0;
         for (int i = 0; i < robot.getCards().size(); i++) {
@@ -15,7 +15,7 @@ public class Robot extends Player {
     //check the value
     //check if he has a card with the value
     public int checkRuleValue(Game game, Robot robot) {
-        Card card = game.getRuleCard();
+        Card card = game.getLastCard();
         int valueCount = 0;
         for (int i = 0; i < robot.getCards().size(); i++) {
             if (robot.getCards().get(i).getValue().equals(card.getValue())) {
