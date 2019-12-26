@@ -112,11 +112,6 @@ public class Game {
         System.exit(1);
     }
 
-
-    //End Message.
-
-    // Do you want to play again.
-
     //Play Card
     public void PlayCard() {
         ShowPlayerCard();
@@ -125,7 +120,7 @@ public class Game {
             System.out.print("Play a card: ");
             var index = input.nextInt() - 1;
             //Check that index is on array boundary
-
+            CheckArrayBoundary(index);
             // get card
             var card = player.getCards().get(index);
             player.getCards().remove(index);
@@ -135,6 +130,12 @@ public class Game {
 
     }
 // CheckArrayBoundary
+    public void CheckArrayBoundary(int number) {
+        if (number < 0 || number >= player.getCards().size()){
+            System.out.print("\n "+ number +"is not a valid number");
+            PlayCard();
+        }
+    }
 
 
     //Set rule color
