@@ -52,17 +52,17 @@ public class Game {
     }
 
     private void Play() {
-        if(player.getTurn()){
+        if (player.getTurn()) {
             System.out.print("\nIt's your turn\n");
             PlayCard();
-        }else{
+        } else {
             RobotsPlay();
         }
     }
 
     private void RobotsPlay() {
-       //Robot's play
-
+        //Robot's play
+        Play();
     }
 
 
@@ -125,14 +125,16 @@ public class Game {
             var card = player.getCards().get(index);
             player.getCards().remove(index);
             rule.checkAction(card, player, robot, deck);
+            Play();
         }
 
 
     }
-// CheckArrayBoundary
+
+    // CheckArrayBoundary
     private void CheckArrayBoundary(int number) {
-        if (number < 0 || number >= player.getCards().size()){
-            System.out.print("\n "+ number +"is not a valid number");
+        if (number < 0 || number >= player.getCards().size()) {
+            System.out.print("\n " + number + "is not a valid number");
             PlayCard();
         }
     }
