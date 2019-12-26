@@ -23,8 +23,12 @@ public class Deck {
     public List<Card> ShowCards() {
         return cards;
     }
-
-
+//TODO: Change this to StartCard
+public Card FirstCard(){
+        Card card = cards.get(0);
+        cards.remove(0);
+        return card;
+}
     public void DrawCard(List<Card> playerCard, int times) {
         for (int x = 0; x < times; x++) {
             playerCard.add(cards.get(0));
@@ -46,7 +50,7 @@ public class Deck {
             cards.get(newIndex).setValue(card.getValue());
         }
     }
-
+//TODO: Change this to DealsCards
     public List<Card> StartCard() {
         List<Card> playerCard = new ArrayList<>();
         for (int i = 0; i < 7; i++) {

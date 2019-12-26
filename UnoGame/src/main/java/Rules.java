@@ -10,7 +10,7 @@ public class Rules {
         //When we have add_two or add four, use the method AddCard
         if (card.getActions().equals(Actions.ADD_TWO) || card.getActions().equals(Actions.ADD_FOUR)) {
             AddCard(card, player2, deck);
-            game.PlayCard(player, player2, deck);
+            game.PlayCard();
 
         }
         //When we have wild card, use the method ChooseColor
@@ -20,7 +20,7 @@ public class Rules {
         }
         //When we have reverse card, use the method ChangeTurns
         else if (card.getActions().equals(Actions.REVERSE) || card.getActions().equals(Actions.SKIP_TURN)) {
-            game.PlayCard(player, player2, deck);
+            game.PlayCard();
         }
 
     }
@@ -40,7 +40,6 @@ public class Rules {
 
     public void ChooseColor(SpecialCard card) {
         Scanner input = new Scanner(System.in);
-
         System.out.print("Choose a color: red (r), blue (b), green (g), yellow (y)");
         String color = input.next().toLowerCase().substring(0, 1);
         switch (color) {

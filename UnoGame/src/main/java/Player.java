@@ -9,6 +9,7 @@ public class Player {
     Player(String name, List<Card> cards) {
         this.name = name;
         this.cards = cards;
+        this.turn = true;
     }
 
     public void setName(String name) {
