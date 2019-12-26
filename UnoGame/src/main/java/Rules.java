@@ -90,9 +90,9 @@ public class Rules {
 //Color
     public boolean CheckColor(Card card) {
         //if the card is invalid, print the message.
-        if (!card.getColor().equals(game.getRuleColor())) {
+        if (!card.getColor().equals(game.getLastCard())) {
             System.out.print("This card is not " + game
-                    .getRuleColor() + ".\n Please try again.");
+                    .getLastCard() + ".\n Please try again.");
             return false;
         } else {
             return true;

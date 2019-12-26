@@ -14,7 +14,6 @@ public class Game {
         Scanner input = new Scanner(System.in);
         System.out.print("\nWelcome to this unofficial UNO Game! \nWhat's your name?\n Enter Name: ");
         this.name = input.next();
-        Menu();
     }
 
     //Menu
@@ -113,7 +112,7 @@ public class Game {
     }
 
     //Play Card
-    private void PlayCard() {
+    public void PlayCard() {
         ShowPlayerCard();
         Scanner input = new Scanner(System.in);
         if (player.getTurn()) {
@@ -141,14 +140,15 @@ public class Game {
 
 
     //last card played
-    public Card getRuleCard() {
+    public Card getLastCard() {
         return card;
     }
 
-    public void setRuleCard(Card card) {
+    public void setLastCard(Card card) {
         this.card = card;
 
     }
+ // Say UNO
 
     // Create player.
     private void CreatePlayer(String name, Deck deck) {
@@ -156,5 +156,8 @@ public class Game {
         robot = new Robot();
         robot.setName("robot");
         robot.setCards(deck.StartCard());
+    }
+    public String getPlayerName(){
+        return name;
     }
 }
