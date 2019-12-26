@@ -3,11 +3,11 @@ import java.util.Scanner;
 
 public class Game {
     private Rules rule;
-    private String color;
+    private Card card;
     private String name;
     private Deck deck;
     private Player player;
-    private static Player robot;
+    private static Robot robot;
 
     //Welcome Message
     public void WelcomeMessage() {
@@ -140,18 +140,21 @@ public class Game {
     }
 
 
-    //Set rule color
-    public String getRuleColor() {
-        return color;
+    //last card played
+    public Card getRuleCard() {
+        return card;
     }
 
-    public void setRuleColor(String color) {
-        this.color = color;
+    public void setRuleCard(Card card) {
+        this.card = card;
+
     }
 
     // Create player.
     private void CreatePlayer(String name, Deck deck) {
         player = new Player(name, deck.StartCard());
-        robot = new Player("robot", deck.StartCard());
+        robot = new Robot();
+        robot.setName("robot");
+        robot.setCards(deck.StartCard());
     }
 }

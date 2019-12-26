@@ -41,7 +41,7 @@ public class Rules {
             deck.DrawCard(player.getCards(), 4);
         }
     }
-
+//TODO:Review this since we change the setGameRule Method.
     public void ChooseColor(SpecialCard card) {
         Scanner input = new Scanner(System.in);
         System.out.print("Choose a color: red (r), blue (b), green (g), yellow (y)");
@@ -63,7 +63,9 @@ public class Rules {
                 System.out.println("The color entered is not valid. Try again");
                 ChooseColor(card);
         }
-        game.setRuleColor(color);
+
+        //TODO: Change this
+       // game.setRuleColor(color);
 
 
     }

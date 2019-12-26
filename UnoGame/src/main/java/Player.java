@@ -5,6 +5,9 @@ public class Player {
     private List<Card> cards;
     private  boolean turn;
 
+    Player() {
+
+    }
     //TODO: Do I need to pass or can I just create cards?
     Player(String name, List<Card> cards) {
         this.name = name;
