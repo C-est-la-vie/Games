@@ -2,8 +2,12 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Rules {
-    Game game = new Game();
+   private Game game;
 
+//TODO: Do we need this here?
+   Rules(Game game){
+       this.game = game;
+   }
     // Action’s rules.
     // method call Action
     public void checkAction(SpecialCard card, Player player, Player player2, Deck deck) {
@@ -61,10 +65,6 @@ public class Rules {
         }
         game.setRuleColor(color);
 
-
-    }
-
-    public void ChangeTurns(Player player) {
 
     }
 
