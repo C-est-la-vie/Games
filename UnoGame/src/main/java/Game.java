@@ -56,11 +56,11 @@ public class Game {
             System.out.print("\nIt's your turn\n");
             PlayCard();
         }else{
-            SelectCardToPlay();
+            RobotsPlay();
         }
     }
 
-    private void SelectCardToPlay() {
+    private void RobotsPlay() {
        //Robot's play
 
     }
