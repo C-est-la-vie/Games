@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cc4de1fe-3ccd-4928-9c36-845a6d65c33a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/TestDeck.java" afterDir="false" />
+    <list default="true" id="cc4de1fe-3ccd-4928-9c36-845a6d65c33a" name="Default Changelist" comment="GameTest">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Robot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Robot.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,17 +41,64 @@
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
-  <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
+  <component name="RunManager" selected="JUnit.TestRules.CheckColorTest">
+    <configuration name="TestRules.CheckActionSpecialCardReverseTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="UnoGame" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestRules" />
+      <option name="METHOD_NAME" value="CheckActionSpecialCardReverseTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestRules.CheckColorSameTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="UnoGame" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestRules" />
+      <option name="METHOD_NAME" value="CheckColorSameTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestRules.CheckColorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="UnoGame" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestRules" />
+      <option name="METHOD_NAME" value="CheckColorTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestRules.TurnTrueTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="UnoGame" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestRules" />
+      <option name="METHOD_NAME" value="TurnTrueTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestRules.WinnerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="UnoGame" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestRules" />
+      <option name="METHOD_NAME" value="WinnerTest" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.TestRules.CheckColorTest" />
+        <item itemvalue="JUnit.TestRules.CheckColorSameTest" />
+        <item itemvalue="JUnit.TestRules.WinnerTest" />
+        <item itemvalue="JUnit.TestRules.CheckActionSpecialCardReverseTest" />
+        <item itemvalue="JUnit.TestRules.TurnTrueTest" />
       </list>
     </recent_temporary>
   </component>
@@ -79,13 +125,66 @@
       <option name="presentableId" value="Default" />
       <updated>1576893458502</updated>
     </task>
+    <task id="LOCAL-00001" summary="checkAction method created.">
+      <created>1577251834703</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1577251834703</updated>
+    </task>
+    <task id="LOCAL-00002" summary="fixed rule class.">
+      <created>1577310032096</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1577310032096</updated>
+    </task>
+    <task id="LOCAL-00003" summary="TestRules class">
+      <created>1577315847562</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1577315847562</updated>
+    </task>
+    <task id="LOCAL-00004" summary="TestRules class finish">
+      <created>1577337119553</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1577337119553</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Robot class">
+      <created>1577396776930</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1577396776930</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="checkAction method created." />
+    <MESSAGE value="fixed rule class." />
+    <MESSAGE value="TestRules class" />
+    <MESSAGE value="TestRules class finish" />
+    <MESSAGE value="Robot class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Robot class" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="240" y="46" key="#Project_Structure" timestamp="1577237922359">
-      <screen x="0" y="23" width="1280" height="716" />
+    <state x="233" y="0" key="#Notifications" timestamp="1577310116122">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
+    <state x="233" y="0" key="#Notifications/0.0.1280.680@0.0.1280.680" timestamp="1577310116122" />
+    <state x="240" y="0" key="#Project_Structure" timestamp="1577251677843">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="240" y="0" key="#Project_Structure/0.0.1280.680@0.0.1280.680" timestamp="1577251677843" />
     <state x="240" y="46" key="#Project_Structure/0.23.1280.716@0.23.1280.716" timestamp="1577237922359" />
+    <state x="490" y="230" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1577251563662">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="490" y="230" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1280.680@0.0.1280.680" timestamp="1577251563662" />
     <state x="402" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1576898172265">
       <screen x="0" y="23" width="1280" height="716" />
     </state>
@@ -94,63 +193,97 @@
       <screen x="0" y="23" width="1280" height="715" />
     </state>
     <state x="540" y="140" key="#xdebugger.XInspectDialog/0.23.1280.715@0.23.1280.715" timestamp="1577135973670" />
-    <state width="619" height="564" key="GridCell.Tab.0.bottom" timestamp="1577145168372">
-      <screen x="0" y="23" width="1280" height="716" />
+    <state x="282" y="0" key="CommitChangelistDialog2" timestamp="1577400156795">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
+    <state x="282" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1577400156795" />
+    <state x="121" y="56" key="DiffContextDialog" timestamp="1577335242969">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="121" y="56" key="DiffContextDialog/0.0.1280.680@0.0.1280.680" timestamp="1577335242969" />
+    <state width="618" height="164" key="GridCell.Tab.0.bottom" timestamp="1577350699869">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="618" height="164" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1577350699869" />
     <state width="619" height="150" key="GridCell.Tab.0.bottom/0.23.1280.715@0.23.1280.715" timestamp="1577138388195" />
     <state width="619" height="564" key="GridCell.Tab.0.bottom/0.23.1280.716@0.23.1280.716" timestamp="1577145168372" />
     <state width="619" height="478" key="GridCell.Tab.0.bottom/0.23.1280.723@0.23.1280.723" timestamp="1577144298666" />
-    <state width="619" height="564" key="GridCell.Tab.0.center" timestamp="1577145168371">
-      <screen x="0" y="23" width="1280" height="716" />
+    <state width="618" height="164" key="GridCell.Tab.0.center" timestamp="1577350699866">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
+    <state width="618" height="164" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1577350699866" />
     <state width="619" height="150" key="GridCell.Tab.0.center/0.23.1280.715@0.23.1280.715" timestamp="1577138388193" />
     <state width="619" height="564" key="GridCell.Tab.0.center/0.23.1280.716@0.23.1280.716" timestamp="1577145168371" />
     <state width="619" height="478" key="GridCell.Tab.0.center/0.23.1280.723@0.23.1280.723" timestamp="1577144298663" />
-    <state width="619" height="564" key="GridCell.Tab.0.left" timestamp="1577145168370">
-      <screen x="0" y="23" width="1280" height="716" />
+    <state width="618" height="164" key="GridCell.Tab.0.left" timestamp="1577350699864">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
+    <state width="618" height="164" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1577350699864" />
     <state width="619" height="150" key="GridCell.Tab.0.left/0.23.1280.715@0.23.1280.715" timestamp="1577138388192" />
     <state width="619" height="564" key="GridCell.Tab.0.left/0.23.1280.716@0.23.1280.716" timestamp="1577145168370" />
     <state width="619" height="478" key="GridCell.Tab.0.left/0.23.1280.723@0.23.1280.723" timestamp="1577144298662" />
-    <state width="619" height="564" key="GridCell.Tab.0.right" timestamp="1577145168372">
-      <screen x="0" y="23" width="1280" height="716" />
+    <state width="618" height="164" key="GridCell.Tab.0.right" timestamp="1577350699867">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
+    <state width="618" height="164" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1577350699867" />
     <state width="619" height="150" key="GridCell.Tab.0.right/0.23.1280.715@0.23.1280.715" timestamp="1577138388194" />
     <state width="619" height="564" key="GridCell.Tab.0.right/0.23.1280.716@0.23.1280.716" timestamp="1577145168372" />
     <state width="619" height="478" key="GridCell.Tab.0.right/0.23.1280.723@0.23.1280.723" timestamp="1577144298664" />
-    <state width="619" height="564" key="GridCell.Tab.1.bottom" timestamp="1577145168216">
-      <screen x="0" y="23" width="1280" height="716" />
+    <state width="618" height="164" key="GridCell.Tab.1.bottom" timestamp="1577350699874">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
+    <state width="618" height="164" key="GridCell.Tab.1.bottom/0.0.1280.680@0.0.1280.680" timestamp="1577350699874" />
     <state width="619" height="150" key="GridCell.Tab.1.bottom/0.23.1280.715@0.23.1280.715" timestamp="1577138388000" />
     <state width="619" height="564" key="GridCell.Tab.1.bottom/0.23.1280.716@0.23.1280.716" timestamp="1577145168216" />
     <state width="619" height="478" key="GridCell.Tab.1.bottom/0.23.1280.723@0.23.1280.723" timestamp="1577144298434" />
-    <state width="619" height="564" key="GridCell.Tab.1.center" timestamp="1577145168215">
-      <screen x="0" y="23" width="1280" height="716" />
+    <state width="618" height="164" key="GridCell.Tab.1.center" timestamp="1577350699871">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
+    <state width="618" height="164" key="GridCell.Tab.1.center/0.0.1280.680@0.0.1280.680" timestamp="1577350699871" />
     <state width="619" height="150" key="GridCell.Tab.1.center/0.23.1280.715@0.23.1280.715" timestamp="1577138387999" />
     <state width="619" height="564" key="GridCell.Tab.1.center/0.23.1280.716@0.23.1280.716" timestamp="1577145168215" />
     <state width="619" height="478" key="GridCell.Tab.1.center/0.23.1280.723@0.23.1280.723" timestamp="1577144298433" />
-    <state width="619" height="564" key="GridCell.Tab.1.left" timestamp="1577145168214">
-      <screen x="0" y="23" width="1280" height="716" />
+    <state width="618" height="164" key="GridCell.Tab.1.left" timestamp="1577350699871">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
+    <state width="618" height="164" key="GridCell.Tab.1.left/0.0.1280.680@0.0.1280.680" timestamp="1577350699871" />
     <state width="619" height="150" key="GridCell.Tab.1.left/0.23.1280.715@0.23.1280.715" timestamp="1577138387999" />
     <state width="619" height="564" key="GridCell.Tab.1.left/0.23.1280.716@0.23.1280.716" timestamp="1577145168214" />
     <state width="619" height="478" key="GridCell.Tab.1.left/0.23.1280.723@0.23.1280.723" timestamp="1577144298433" />
-    <state width="619" height="564" key="GridCell.Tab.1.right" timestamp="1577145168215">
-      <screen x="0" y="23" width="1280" height="716" />
+    <state width="618" height="164" key="GridCell.Tab.1.right" timestamp="1577350699873">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
+    <state width="618" height="164" key="GridCell.Tab.1.right/0.0.1280.680@0.0.1280.680" timestamp="1577350699873" />
     <state width="619" height="150" key="GridCell.Tab.1.right/0.23.1280.715@0.23.1280.715" timestamp="1577138388000" />
     <state width="619" height="564" key="GridCell.Tab.1.right/0.23.1280.716@0.23.1280.716" timestamp="1577145168215" />
     <state width="619" height="478" key="GridCell.Tab.1.right/0.23.1280.723@0.23.1280.723" timestamp="1577144298434" />
-    <state x="90" y="23" width="982" height="716" key="SettingsEditor" timestamp="1577238085520">
-      <screen x="0" y="23" width="1280" height="716" />
+    <state x="121" y="56" key="MergeDialog" timestamp="1577315891938">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
+    <state x="121" y="56" key="MergeDialog/0.0.1280.680@0.0.1280.680" timestamp="1577315891938" />
+    <state x="354" y="57" key="MultipleFileMergeDialog" timestamp="1577315891947">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="354" y="57" key="MultipleFileMergeDialog/0.0.1280.680@0.0.1280.680" timestamp="1577315891947" />
+    <state x="392" y="52" key="RollbackChangesDialog" timestamp="1577338115792">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="392" y="52" key="RollbackChangesDialog/0.0.1280.680@0.0.1280.680" timestamp="1577338115792" />
+    <state x="90" y="0" width="982" height="716" key="SettingsEditor" timestamp="1577315943014">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="90" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1577315943014" />
     <state x="90" y="23" width="982" height="715" key="SettingsEditor/0.23.1280.715@0.23.1280.715" timestamp="1577135733834" />
     <state x="90" y="23" width="982" height="716" key="SettingsEditor/0.23.1280.716@0.23.1280.716" timestamp="1577238085520" />
     <state x="149" y="24" key="SettingsEditor/0.23.1280.723@0.23.1280.723" timestamp="1576899999352" />
-    <state x="319" y="214" key="com.intellij.ide.util.TipDialog" timestamp="1577235227511">
-      <screen x="0" y="23" width="1280" height="715" />
+    <state x="233" y="74" key="Vcs.Push.Dialog.v2" timestamp="1577396787762">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
+    <state x="233" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1577396787762" />
+    <state x="319" y="182" key="com.intellij.ide.util.TipDialog" timestamp="1577396628648">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="319" y="182" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1577396628648" />
     <state x="319" y="212" key="com.intellij.ide.util.TipDialog/0.23.1280.713@0.23.1280.713" timestamp="1576893473093" />
     <state x="319" y="214" key="com.intellij.ide.util.TipDialog/0.23.1280.715@0.23.1280.715" timestamp="1577235227511" />
     <state x="319" y="214" key="com.intellij.ide.util.TipDialog/0.23.1280.721@0.23.1280.721" timestamp="1576894829242" />
@@ -159,6 +292,10 @@
       <screen x="0" y="23" width="1280" height="716" />
     </state>
     <state x="298" y="23" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.23.1280.716@0.23.1280.716" timestamp="1577141247369" />
+    <state x="369" y="133" key="git4idea.merge.GitPullDialog" timestamp="1577400171306">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="369" y="133" key="git4idea.merge.GitPullDialog/0.0.1280.680@0.0.1280.680" timestamp="1577400171306" />
     <state x="34" y="107" key="new project wizard" timestamp="1577134905401">
       <screen x="0" y="23" width="1280" height="715" />
     </state>
