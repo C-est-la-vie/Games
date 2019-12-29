@@ -17,12 +17,13 @@ public class Game {
     }
 
     //Menu
+    //TODO: When people sets a letter show try again
     public void Menu() {
         Scanner input = new Scanner(System.in);
         System.out.print("\nChoose one option from below" +
                 "\n 1 : Start game from 0 " +
                 "\n 2 : Read Instructions" +
-                "\n 3 : End Game");
+                "\n 3 : End Game\n");
         var option = input.nextInt();
         switch (option) {
             case 1:
@@ -41,6 +42,7 @@ public class Game {
 
 
     private void Start() {
+        this.deck = new Deck();
         deck.mixCard();
         CreatePlayer(name, deck);
         ShowFirstCard();
@@ -50,10 +52,10 @@ public class Game {
 
     }
 
-    private void Play() {
+    public void Play() {
         if (player.getTurn()) {
             System.out.print("\nIt's your turn\n");
-            PlayCard();
+           PlayCard();
         } else {
             RobotsPlay();
         }
@@ -76,7 +78,7 @@ public class Game {
     }
 
     private void ShowPlayerCard() {
-        System.out.print("\n This are your cards: \n");
+        System.out.print("\n These are your cards: \n");
         var i = 1;
         for (Card playerCard : player.getCards()) {
             System.out.println(i + ": " + playerCard);
@@ -86,10 +88,11 @@ public class Game {
     }
 
     private void ShowFirstCard() {
-        System.out.print(" _ _ _ _ " +
-                "|        |" +
-                "|  " + deck.FirstCard() + "  |" +
-                "|_ _ _ _ |");
+       var card = deck.FirstCard();
+        System.out.print(" _ _ _ _ \n" +
+                "|        |\n" +
+                "|  " + card.getValue() + " " + card.getColor()+ "|\n" +
+                "|_ _ _ _ |\n");
     }
 
 
@@ -98,9 +101,9 @@ public class Game {
 
     private void Instructions() {
         System.out.print("\nInstructions: " +
-                "During your turn you'll see a message telling you that it's your time to play\n" +
-                "Enter the number on the left side of the card that you want to play\n" +
-                "If you don't have a card that you can play then enter \"d\" to draw a card from the pile\n" +
+                "During your turn, you'll see a message telling you that it's your time to play.\n" +
+                "Enter the number on the left side of the card that you want to play.\n" +
+                "If you don't have a card that you can play then enter \"d\" to draw a card from the pile.\n" +
                 "Have fun!!\n");
         Menu();
     }
