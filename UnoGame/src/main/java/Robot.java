@@ -17,7 +17,7 @@ public class Robot extends Player {
             if (checkForCardValue(robotCards, lastCard.getValue())) {
                 //How many cards with the same value & it should be different color.
                 List<Integer> valueCount = checkRuleValue(lastCard, robotCards);
-
+                return -4;
                 //More details
             } else {
                 //if I just have the same color then I want to know if I have a special card
@@ -34,44 +34,40 @@ public class Robot extends Player {
         }//If I don't have cards with the same color then
         //Check to see if I have cards with the same value
         else if (checkForCardValue(robotCards, lastCard.getValue())) {
-            //If I do have many cards with the same value?
+            //If I do have, how many cards with the same value?
             //If I have more than 1
-            if (checkDuplicateValueCard(lastCard, robotCards)) {
-
-            } else {
-                // If I just have one with the same value.
-                //Then play that one.
-                return FindIndexCardByValue(robotCards, lastCard.getValue());
-            }
-
+            // TODO: Finishing this options, there is the possibility that the cards have the same color
+            //or of having 3 cards with the same value
+//            if (checkDuplicateValueCard(lastCard, robotCards)) {
+//// I want to choose the one that with benefit me the most
+//                // Check quantity
+//                //TODO: I'm working here
+//                String[] colors = getColorsOfDuplicateValues();
+//                int fistColor = checkQuantity(colors[0],robotCards);
+//                int secondColor = checkQuantity(colors[1],robotCards);
+//                if(fistColor > secondColor){
+//                    //I want to choose to use the value that has the first color
+//
+//                }
+            //          } else {
+            // If I just have one with the same value.
+            //Then play that one.
+            return FindIndexCardByValue(robotCards, lastCard.getValue());
         }
+
         //If I have nothing check to see if I have a none color card
-        else if (checkCardsWithSameColor("none", robotCards)) {
+        else if (
+
+                checkCardsWithSameColor("none", robotCards)) {
             //If I have then Choose that one
             return getNoneColorCard(robotCards);
 
-        }  //If I don't then draw a card, return -1;
+        }
+
+        //If I don't then draw a card, return -1;
         else {
             return -1;
         }
-
-//
-//        List<Integer> sameValueCount = getSameValueCount(lastCard, robotCards);
-//        //If it has 0 color and 0 value. return 0
-//        if (sameColorCount.size() == 0 && sameValueCount.size() == 0) {
-//            checkActionCards();
-//            return -1;
-//        } else if (sameColorCount.size() > sameValueCount.size()) {
-//
-//        } else if (sameColorCount.size() == sameValueCount.size()) {
-//            if (checkWildCard(robotCards, sameValueCount)) {
-//                //Return the index of the card that has the same value.
-//                return;
-//            } else if (sameColorCount.size() != 0 && sameValueCount.size() == 0) {
-//                return sameColorCount.get(randomGetValidCardToPlay(sameColorCount));
-//            }
-//        }
-
     }
 
     // get a random card from the valid options to play
@@ -174,14 +170,6 @@ public class Robot extends Player {
         return -1;
     }
 
-    //TODO: Change this so it will check first base in the color
-    private List<Integer> getSameValueCount(Card lastCard, List<Card> robotCards) {
-        if (checkDuplicateValueCard(lastCard, robotCards)) {
-            return checkRuleValue(lastCard, robotCards);
-        } else {
-            return checkQuantity(lastCard, robotCards);
-        }
-    }
 
     //Check how many cards of one color are in a deck
     private int checkQuantity(String color, List<Card> robotCards) {
@@ -191,6 +179,7 @@ public class Robot extends Player {
                 return count++;
             }
         }
+        return count;
     }
 
 
