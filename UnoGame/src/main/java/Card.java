@@ -1,9 +1,14 @@
-public class Card {
-    private  String value;
-    private  String color;
+import java.util.Optional;
 
-    Card(){
+public class Card {
+    private String value;
+    private String color;
+    private Optional<Actions> actions;
+
+
+    Card() {
     }
+
     public Card(String cardValue, String cardColor) {
         this.value = cardValue;
         this.color = cardColor;
@@ -25,4 +30,11 @@ public class Card {
         return color;
     }
 
+    public void setActions(Optional<Actions> actions) {
+        this.actions = actions;
+    }
+
+    public Optional<Actions> getActions() {
+        return actions;
+    }
 }

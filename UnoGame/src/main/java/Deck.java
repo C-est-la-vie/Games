@@ -9,7 +9,6 @@ public class Deck {
         cards = new ArrayList<>();
         for (String color : colors.values()) {
             MakingCards(cards, color);
-
             MakingSpecialCards(cards, color, Actions.ADD_TWO, "+2", 2);
             MakingSpecialCards(cards, color, Actions.SKIP_TURN, "Skip", 2);
             MakingSpecialCards(cards, color, Actions.REVERSE, "reverse", 2);
@@ -19,12 +18,9 @@ public class Deck {
     }
 
 
-// TODO: remove
-    public List<Card> ShowCards() {
-        return cards;
-    }
+
 //TODO: Change this to StartCard
-public Card FirstCard(){
+public Card StartCard(){
         Card card = cards.get(0);
         cards.remove(0);
         return card;
@@ -51,7 +47,7 @@ public Card FirstCard(){
         }
     }
 //TODO: Change this to DealsCards
-    public List<Card> StartCard() {
+    public List<Card> DealCards() {
         List<Card> playerCard = new ArrayList<>();
         for (int i = 0; i < 7; i++) {
 
