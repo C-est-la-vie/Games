@@ -58,6 +58,7 @@ public class Game {
     }
 
     public void Play() {
+        showLastCard();
         rule.Winner(robot);
         rule.Winner(player);
         if (player.getTurn()) {
@@ -71,8 +72,9 @@ public class Game {
     }
 
     private void RobotsPlay() {
-        System.out.println("\nRobot's card");
-        showRobotsCards();
+        //TODO:Take this out
+//        System.out.println("\nRobot's card");
+//        showRobotsCards();
         int cardToPlay = robotPlayer.chooseCard(card, robot.getCards());
         if (cardToPlay < 0) {
             deck.DrawCard(robot.getCards(), 1);
@@ -154,7 +156,6 @@ public class Game {
 
     //Play Card
     public void PlayCard() {
-        showLastCard();
         ShowPlayerCard();
         Scanner input = new Scanner(System.in);
         if (player.getTurn()) {
