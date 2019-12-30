@@ -24,7 +24,6 @@ public class Game {
 
     //Menu
     public void Menu() {
- //       try {
             Scanner input = new Scanner(System.in);
             System.out.print("\nChoose one option from below" +
                     "\n 1 : Start game " +
@@ -41,14 +40,9 @@ public class Game {
                 case 3:
                     EndGame();
                     break;
-                default:
+                default: System.out.println("\n Try a number from 1 to 3\n");
                     Menu();
             }
-//        } catch (Exception e) {
-//          //  System.out.println("That is not a valid option. Try with a number from 1 to 3");
-//        }finally {
-//            Menu();
-//        }
 
     }
 
