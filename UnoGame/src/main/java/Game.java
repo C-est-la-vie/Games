@@ -67,11 +67,11 @@ public class Game {
             rule.Winner(robot);
             System.out.print("\nIt's your turn\n");
             PlayCard();
-            Uno(player);
+
         } else {
             rule.Winner(player);
             RobotsPlay();
-            Uno(robot);
+
         }
     }
 
@@ -97,6 +97,7 @@ public class Game {
             }
             rule.checkAction(myCard, robot, player, deck);
         }
+        Uno(robot);
         Play();
     }
 
@@ -186,6 +187,7 @@ public class Game {
                     PlayCard();
                 }
             }
+            Uno(player);
             Play();
         }
     }
