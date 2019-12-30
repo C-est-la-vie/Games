@@ -46,6 +46,7 @@ public class Game {
             }
         } catch (Exception e) {
             System.out.println("That is not a valid option. Try with a number from 1 to 3");
+        }finally {
             Menu();
         }
 
