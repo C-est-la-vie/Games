@@ -19,6 +19,7 @@ public class Robot extends Player {
                 List<Integer> valueCount = checkRuleValue(lastCard, robotCards);
                 return -4;
                 //More details
+                //TODO: Working from here now.
             } else {
                 //if I just have the same color then I want to know if I have a special card
                 if (checkWildCard(sameColorCount, robotCards)) {
@@ -134,6 +135,7 @@ public class Robot extends Player {
         List<Integer> valueCount = new ArrayList<>();
         for (int i = 0; i < robotCards.size(); i++) {
             if (robotCards.get(i).getValue().equals(lastCard.getValue())) {
+                checkDuplicateValueCard()
                 for (int j = 0; j < robotCards.size(); j++) {
                     if (robotCards.get(i).getColor().equals(robotCards.get(j).getColor())) {
                         valueCount.add(j);
