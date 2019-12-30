@@ -241,16 +241,16 @@ public class Robot extends Player {
     }
 
 
-    //Check how many cards of one color are in a deck
-    private int checkQuantity(String color, List<Card> robotCards) {
-        int count = 0;
-        for (Card card : robotCards) {
-            if (card.getColor().equals(color)) {
-                return count++;
-            }
-        }
-        return count;
-    }
+//    //Check how many cards of one color are in a deck
+//    private int checkQuantity(String color, List<Card> robotCards) {
+//        int count = 0;
+//        for (Card card : robotCards) {
+//            if (card.getColor().equals(color)) {
+//                return count++;
+//            }
+//        }
+//        return count;
+//    }
 
 
     //Randomly choose between playing and drawing a card
@@ -293,6 +293,26 @@ public class Robot extends Player {
         return -1;
     }
 
+    //When using wild card set color
+    public String ChooseColor(List<Card> robotCards) {
+        int count = 0;
+        int secondCount = 0;
+        String color = "";
+        for (int x = 0; x < robotCards.size(); x++) {
+            for (Card card : robotCards) {
+                if (card.getColor().equals(robotCards.get(x).getColor())) {
+                    count++;
+                }
+            }
+            if (count > secondCount) {
+                color = robotCards.get(x).getColor();
+                secondCount = count;
+                count -= secondCount;
+            }
+        }
+        return color;
+
+    }
 
 }
 
