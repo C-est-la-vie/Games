@@ -19,30 +19,41 @@ public class Game {
     public void WelcomeMessage() {
         Scanner input = new Scanner(System.in);
         System.out.print("\nWelcome to this unofficial UNO Game! \nWhat's your name?\n Enter Name: ");
-        this.name = input.next();
+        do {
+            this.name = input.next();
+        } while (checkName(name));
+    }
+
+    private boolean checkName(String name) {
+        if (name.equals("robot")) {
+            System.out.println("\n name is already been used. Enter new name:\n");
+            return true;
+        }
+        return false;
     }
 
     //Menu
     public void Menu() {
-            Scanner input = new Scanner(System.in);
-            System.out.print("\nChoose one option from below" +
-                    "\n 1 : Start game " +
-                    "\n 2 : Read Instructions" +
-                    "\n 3 : End Game\n");
-            var option = input.nextInt();
-            switch (option) {
-                case 1:
-                    Start();
-                    break;
-                case 2:
-                    Instructions();
-                    break;
-                case 3:
-                    EndGame();
-                    break;
-                default: System.out.println("\n Try a number from 1 to 3\n");
-                    Menu();
-            }
+        Scanner input = new Scanner(System.in);
+        System.out.print("\nChoose one option from below" +
+                "\n 1 : Start game " +
+                "\n 2 : Read Instructions" +
+                "\n 3 : End Game\n");
+        var option = input.nextInt();
+        switch (option) {
+            case 1:
+                Start();
+                break;
+            case 2:
+                Instructions();
+                break;
+            case 3:
+                EndGame();
+                break;
+            default:
+                System.out.println("\n Try a number from 1 to 3\n");
+                Menu();
+        }
 
     }
 
@@ -231,6 +242,7 @@ public class Game {
     public void drawMessage(Player player) {
         System.out.println(player.getName() + " drew one card.");
     }
+
     // Create player.
     private void CreatePlayer(String name, Deck deck) {
         player = new Player(name, deck.DealCards());
