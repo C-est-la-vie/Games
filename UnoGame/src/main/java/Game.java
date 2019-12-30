@@ -87,7 +87,7 @@ public class Game {
             this.card.setColor(myCard.getColor());
             this.card.setValue(myCard.getValue());
             robot.getCards().remove(robot.getCards().get(cardToPlay));
-            if (myCard.getActions().equals(Actions.CHOOSE_COLOR)) {
+            if (myCard.getColor().equals("none")) {
                 String color = robotPlayer.ChooseColor(robot.getCards());
                 this.card.setColor(color);
                 ChangeColorMessage();
