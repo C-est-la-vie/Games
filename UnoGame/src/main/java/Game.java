@@ -78,6 +78,7 @@ public class Game {
         int cardToPlay = robotPlayer.chooseCard(card, robot.getCards());
         if (cardToPlay < 0) {
             deck.DrawCard(robot.getCards(), 1);
+            drawMessage(robot);
             robot.setTurn(false);
             player.setTurn(true);
         } else {
@@ -166,6 +167,7 @@ public class Game {
 
             if (index == -1) {
                 deck.DrawCard(player.getCards(), 1);
+                drawMessage(player);
                 robot.setTurn(true);
                 player.setTurn(false);
             } else {
@@ -226,6 +228,9 @@ public class Game {
         return uno;
     }
 
+    public void drawMessage(Player player) {
+        System.out.println(player.getName() + " drew one card.");
+    }
     // Create player.
     private void CreatePlayer(String name, Deck deck) {
         player = new Player(name, deck.DealCards());
