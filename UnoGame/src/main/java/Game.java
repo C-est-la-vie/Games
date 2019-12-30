@@ -55,7 +55,7 @@ public class Game {
     public void Play() {
         if (player.getTurn()) {
             System.out.print("\nIt's your turn\n");
-           PlayCard();
+            PlayCard();
         } else {
             RobotsPlay();
         }
@@ -88,10 +88,10 @@ public class Game {
     }
 
     private void ShowFirstCard() {
-       var card = deck.FirstCard();
+        var card = deck.StartCard();
         System.out.print(" _ _ _ _ \n" +
                 "|        |\n" +
-                "|  " + card.getValue() + " " + card.getColor()+ "|\n" +
+                "|  " + card.getValue() + " " + card.getColor() + "|\n" +
                 "|_ _ _ _ |\n");
     }
 
@@ -151,16 +151,17 @@ public class Game {
         this.card = card;
 
     }
- // Say UNO
+    // Say UNO
 
     // Create player.
     private void CreatePlayer(String name, Deck deck) {
-        player = new Player(name, deck.StartCard());
+        player = new Player(name, deck.DealCards());
         robot = new Robot();
         robot.setName("robot");
-        robot.setCards(deck.StartCard());
+        robot.setCards(deck.DealCards());
     }
-    public String getPlayerName(){
+
+    public String getPlayerName() {
         return name;
     }
 }
