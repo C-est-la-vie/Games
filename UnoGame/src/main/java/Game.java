@@ -93,9 +93,8 @@ public class Game {
                 ChangeColorMessage();
                 robot.setTurn(false);
                 player.setTurn(true);
-            } else {
-                rule.checkAction(myCard, robot, player, deck);
             }
+            rule.checkAction(myCard, robot, player, deck);
         }
         Play();
     }
