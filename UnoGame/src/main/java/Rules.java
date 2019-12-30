@@ -12,9 +12,7 @@ public class Rules {
     // method call Action
     public void checkAction(Card card, Player player, Player player2, Deck deck) {
         //When we have add_two or add four, use the method AddCard
-        if (card.getActions().equals(Actions.ADD_TWO)) {
-            AddCard(card, player2, deck);
-        } else if (card.getActions().equals(Actions.ADD_FOUR)) {
+        if (card.getActions().equals(Actions.ADD_TWO) || card.getActions().equals(Actions.ADD_FOUR)) {
             AddCard(card, player2, deck);
             player.setTurn(true);
             player2.setTurn(false);
