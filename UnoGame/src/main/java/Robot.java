@@ -2,7 +2,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class Robot extends Player {
+public class Robot {
+    private final Game game;
+
+    Robot(Game game) {
+        this.game = game;
+    }
+
     //This function will call all the necessary functions to choose a card to play
     public int chooseCard(Card lastCard, List<Card> robotCards) {
         // Check If my opponent is about to win
@@ -148,16 +154,19 @@ public class Robot extends Player {
 
     //Check if my opponent said UNO
     private int LastMovement(Card lastCard, List<Card> robotCards) {
-        //if(game.UNO && (robotCards.size() != 1)) // and I have more than two that are not especial{
-        //Check if I have a +4
-        if (checkForCardValue(robotCards, "+4")) {
-            //If I have it then I want to use it
-            return FindIndexCardByValue(robotCards, "+4");
-        } else if (checkForCardValue(robotCards, "+2")) {
-            //Check if I have a +2 of the same color
-            var index = FindIndexCardByValue(robotCards, "+2");
-            if (robotCards.get(index).getColor().equals(lastCard.getColor())) {
-                return index;
+        if (game.getUno() && (robotCards.size() != 1)) {
+            //Check if I have a +4
+            if (checkForCardValue(robotCards, "+4")) {
+                //If I have it then I want to use it
+                return FindIndexCardByValue(robotCards, "+4");
+            } else if (checkForCardValue(robotCards, "+2")) {
+                //Check if I have a +2 of the same color
+                var index = FindIndexCardByValue(robotCards, "+2");
+                if (robotCards.get(index).getColor().equals(lastCard.getColor())) {
+                    return index;
+                } else {
+                    return -1;
+                }
             } else {
                 return -1;
             }
@@ -171,6 +180,7 @@ public class Robot extends Player {
         for (Card robotCard : robotCards) {
             if (robotCard.getColor().equals(color)) {
                 exists = true;
+                break;
             }
         }
         return exists;
