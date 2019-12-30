@@ -10,31 +10,33 @@ public class Rules {
    }
     // Action’s rules.
     // method call Action
-    public void checkAction(SpecialCard card, Player player, Player player2, Deck deck) {
+    public void checkAction(Card card, Player player, Player player2, Deck deck) {
         //When we have add_two or add four, use the method AddCard
         if (card.getActions().equals(Actions.ADD_TWO) || card.getActions().equals(Actions.ADD_FOUR)) {
             AddCard(card, player2, deck);
-            game.PlayCard();
-
+           player.setTurn(true);
+           player2.setTurn(false);
         }
         //When we have wild card, use the method ChooseColor
         else if (card.getActions().equals(Actions.CHOOSE_COLOR)) {
             ChooseColor(card);
             player.setTurn(false);
+            player2.setTurn(true);
         }
         //When we have reverse card, use the method ChangeTurns
         else if (card.getActions().equals(Actions.REVERSE) || card.getActions().equals(Actions.SKIP_TURN)) {
             game.PlayCard();
+        } else {
+            player.setTurn(false);
+            player2.setTurn(true);
         }
 
     }
 
-    public void checkAction(Card card, Player player, Player player2, Deck deck) {
-        player.setTurn(false);
-    }
+
 
     //ADD_TWO, ADD_FOUR, CHOOSE_COLOR, SKIP_TURN, REVERSE;
-    public void AddCard(SpecialCard card, Player player, Deck deck) {
+    public void AddCard(Card card, Player player, Deck deck) {
         if (card.getActions().equals(Actions.ADD_TWO)) {
             deck.DrawCard(player.getCards(), 2);
         } else if (card.getActions().equals(Actions.ADD_FOUR)) {
@@ -42,7 +44,7 @@ public class Rules {
         }
     }
 //TODO:Review this since we change the setGameRule Method.
-    public void ChooseColor(SpecialCard card) {
+    public void ChooseColor(Card card) {
         Scanner input = new Scanner(System.in);
         System.out.print("Choose a color: red (r), blue (b), green (g), yellow (y)");
         String color = input.next().toLowerCase().substring(0, 1);
@@ -63,16 +65,12 @@ public class Rules {
                 System.out.println("The color entered is not valid. Try again");
                 ChooseColor(card);
         }
-
-        //TODO: Change this
-       // game.setRuleColor(color);
-
-
+        game.getLastCard().setColor(color);
+        game.ChangeColorMessage();
     }
 
     // Turns.
     public void Turn(Player player) {
-        player.getTurn();
         //message
         if (!player.getTurn()) {
             System.out.println("It is not your turn");
@@ -82,7 +80,7 @@ public class Rules {
     //if player has 0 cards then wins
     public void Winner(Player player) {
         if (player.getCards().isEmpty()) {
-            System.out.println(player.getName() + " win!");
+            System.out.println(player.getName() + " wins!");
             //end game method
         }
     }
@@ -90,9 +88,9 @@ public class Rules {
 //Color
     public boolean CheckColor(Card card) {
         //if the card is invalid, print the message.
-        if (!card.getColor().equals(game.getLastCard())) {
+        if (!card.getColor().equals(game.getLastCard().getColor()) && !card.getValue().equals(game.getLastCard().getValue())) {
             System.out.print("This card is not " + game
-                    .getLastCard() + ".\n Please try again.");
+                    .getLastCard().getValue() +" "+ card.getColor() + ".\n Please try again.");
             return false;
         } else {
             return true;

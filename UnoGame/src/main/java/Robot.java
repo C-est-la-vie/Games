@@ -3,11 +3,18 @@ import java.util.List;
 import java.util.Random;
 
 public class Robot {
-    private final Game game;
+    private Player player;
+    private Game game;
+    Robot() {
+    }
 
-    Robot(Game game) {
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+    public void setGame(Game game) {
         this.game = game;
     }
+
 
     //This function will call all the necessary functions to choose a card to play
     public int chooseCard(Card lastCard, List<Card> robotCards) {
@@ -20,6 +27,7 @@ public class Robot {
             //Count how many I have
             List<Integer> sameColorCount = checkRuleColor(lastCard, robotCards);
             // check to see if I have a wild card and play it.
+            //TODO: TAke out the =
             if (sameColorCount.size() >= 1 && checkWildCard(sameColorCount, robotCards)) {
                 return FindCardByUsingAListInteger(sameColorCount, robotCards);
             }   //Check if I have cards with the same value;
@@ -40,6 +48,7 @@ public class Robot {
                     return AfterComparing(lastCard, robotCards, sameColorCount, valueCount);
                 }
             } else {
+                //TODO: Is this neccesarry
                 //if I just have the same color then I want to know if I have a special card
                 if (checkWildCard(sameColorCount, robotCards)) {
                     // If I do then I want to play it
@@ -47,7 +56,11 @@ public class Robot {
                 } else {
                     //If I don't have a special card with the same color that I can use then
                     // Choose any of the same color
-                    return randomChooseCardToPlay(sameColorCount);
+                    if (sameColorCount.size() == 1){
+                        return sameColorCount.get(0);
+                    }else {
+                        return randomChooseCardToPlay(sameColorCount);
+                    }
                 }
             }
             //}
@@ -138,7 +151,7 @@ public class Robot {
     // get a random card from the valid options to play
     private int randomChooseCardToPlay(List<Integer> integerList) {
         Random random = new Random();
-        return integerList.get(random.nextInt(integerList.size() - 1));
+        return integerList.get(random.nextInt((integerList.size() - 1)));
     }
 
 

@@ -3,15 +3,16 @@ import java.util.Optional;
 public class Card {
     private String value;
     private String color;
-    private Optional<Actions> actions;
+    private Actions actions;
 
 
     Card() {
     }
 
-    public Card(String cardValue, String cardColor) {
+    public Card(String cardValue, String cardColor, Actions actions) {
         this.value = cardValue;
         this.color = cardColor;
+        this.actions = actions;
     }
 
     public void setValue(String value) {
@@ -30,11 +31,11 @@ public class Card {
         return color;
     }
 
-    public void setActions(Optional<Actions> actions) {
+    public void setActions(Actions actions) {
         this.actions = actions;
     }
 
-    public Optional<Actions> getActions() {
+    public Actions getActions() {
         return actions;
     }
 }

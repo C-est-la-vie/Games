@@ -8,7 +8,7 @@ public class Deck {
     Deck() {
         cards = new ArrayList<>();
         for (String color : colors.values()) {
-            MakingCards(cards, color);
+            MakingCards(cards, color, Actions.NONE);
             MakingSpecialCards(cards, color, Actions.ADD_TWO, "+2", 2);
             MakingSpecialCards(cards, color, Actions.SKIP_TURN, "Skip", 2);
             MakingSpecialCards(cards, color, Actions.REVERSE, "reverse", 2);
@@ -55,10 +55,10 @@ public Card StartCard(){
         }
         return playerCard;
     }
-    private void MakingCards(List<Card> cards, String color) {
+    private void MakingCards(List<Card> cards, String color, Actions action) {
         var y = 0;
         for (int index = 0; index < 19; index++, y++) {
-            var card = new Card(y + "", color);
+            var card = new Card(y + "", color, action);
             cards.add(card);
             if (y == 9) {
                 y = 0;
@@ -68,7 +68,7 @@ public Card StartCard(){
 
     private void MakingSpecialCards(List<Card> cards, String color, Actions action, String value, int n) {
         for (int index = 0; index < n; index++) {
-            var specialCard = new SpecialCard();
+            var specialCard = new Card();
             specialCard.setColor(color);
             specialCard.setValue(value);
             specialCard.setActions(action);
