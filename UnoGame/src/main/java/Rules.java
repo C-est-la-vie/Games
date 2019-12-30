@@ -28,8 +28,9 @@ public class Rules {
             player.setTurn(false);
             player2.setTurn(true);
         }
-        if (card.getColor().equals("none") && !player.getName().equals("robot"))
-        {ChooseColor(card);}
+        if (card.getColor().equals("none") && !player.getName().equals("robot")) {
+            ChooseColor(card);
+        }
 
 
     }
@@ -49,26 +50,29 @@ public class Rules {
         Scanner input = new Scanner(System.in);
         System.out.print("Choose a color: red (r), blue (b), green (g), yellow (y)");
         String color = input.next().toLowerCase().substring(0, 1);
-        switch (color) {
-            case "r":
-                color = "red";
-                break;
-            case "b":
-                color = "blue";
-                break;
-            case "g":
-                color = "green";
-                break;
-            case "y":
-                color = "yellow";
-                break;
-            default:
-                System.out.println("The color entered is not valid. Try again");
-                ChooseColor(card);
+        if (color.equals("r") || color.equals("b") || color.equals("g") || color.equals("y")) {
+
+            switch (color) {
+                case "r":
+                    color = "red";
+                    break;
+                case "b":
+                    color = "blue";
+                    break;
+                case "g":
+                    color = "green";
+                    break;
+                case "y":
+                    color = "yellow";
+                    break;
+            }
+            game.getLastCard().setColor(color);
+            card.setColor(color);
+            game.ChangeColorMessage();
+        } else {
+            System.out.println("\nThat is not a color...\n");
+            ChooseColor(card);
         }
-        game.getLastCard().setColor(color);
-        card.setColor(color);
-        game.ChangeColorMessage();
     }
 
     // Turns.
