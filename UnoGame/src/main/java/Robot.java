@@ -5,12 +5,14 @@ import java.util.Random;
 public class Robot {
     private Player player;
     private Game game;
+
     Robot() {
     }
 
     public void setPlayer(Player player) {
         this.player = player;
     }
+
     public void setGame(Game game) {
         this.game = game;
     }
@@ -54,11 +56,7 @@ public class Robot {
                 } else {
                     //If I don't have a special card with the same color that I can use then
                     // Choose any of the same color
-                    if (sameColorCount.size() == 1){
-                        return sameColorCount.get(0);
-                    }else {
-                        return randomChooseCardToPlay(sameColorCount);
-                    }
+                    return randomChooseCardToPlay(sameColorCount);
                 }
             }
             //}
@@ -149,7 +147,11 @@ public class Robot {
     // get a random card from the valid options to play
     private int randomChooseCardToPlay(List<Integer> integerList) {
         Random random = new Random();
-        return integerList.get(random.nextInt((integerList.size() - 1)));
+        if (integerList.size() == 1) {
+            return integerList.get(0);
+        } else {
+            return integerList.get(random.nextInt((integerList.size() - 1)));
+        }
     }
 
 
