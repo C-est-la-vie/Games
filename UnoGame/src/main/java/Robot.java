@@ -47,7 +47,6 @@ public class Robot {
                     return AfterComparing(lastCard, robotCards, sameColorCount, valueCount);
                 }
             } else {
-                //TODO: Is this neccesary... Compare to first check Wild
                 //if I just have the same color then I want to know if I have a special card
                 if (checkWildCard(sameColorCount, robotCards)) {
                     // If I do then I want to play it
@@ -120,14 +119,14 @@ public class Robot {
         int count = 0;
         int secondCount = 0;
         String color = "";
-        for (int x = 0; x < duplicateCards.size(); x++) {
+        for (Card duplicateCard : duplicateCards) {
             for (Card card : robotCards) {
-                if (card.getColor().equals(duplicateCards.get(x).getColor())) {
+                if (card.getColor().equals(duplicateCard.getColor())) {
                     count++;
                 }
             }
             if (count > secondCount) {
-                color = duplicateCards.get(x).getColor();
+                color = duplicateCard.getColor();
                 secondCount = count;
                 count -= secondCount;
             }
