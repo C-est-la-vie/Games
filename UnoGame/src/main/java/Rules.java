@@ -4,7 +4,6 @@ import java.util.Scanner;
 public class Rules {
     private Game game;
 
-    //TODO: Do we need this here?
     Rules(Game game) {
         this.game = game;
     }
@@ -77,7 +76,7 @@ public class Rules {
     }
 
     // Turns.
-    //TODO:Call this method
+    //@unused
     public void Turn(Player player) {
         //message
         if (!player.getTurn()) {
@@ -85,12 +84,11 @@ public class Rules {
         }
     }
 
-    //TODO:Call this method
     //if player has 0 cards then wins
     public void Winner(Player player) {
         if (player.getCards().isEmpty()) {
             System.out.println(player.getName() + " wins!");
-            //end game method
+            game.EndGame();
         }
     }
 

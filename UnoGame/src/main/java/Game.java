@@ -69,9 +69,11 @@ public class Game {
         System.out.println("This is robo's turn: " + robot.getTurn());
 
         if (player.getTurn()) {
+            rule.Winner(robot);
             System.out.print("\nIt's your turn\n");
             PlayCard();
         } else {
+            rule.Winner(player);
             RobotsPlay();
         }
     }
@@ -153,7 +155,7 @@ public class Game {
     }
 
 
-    private void EndGame() {
+    public void EndGame() {
         System.out.print("\nThank you for playing\n");
         System.exit(1);
     }
