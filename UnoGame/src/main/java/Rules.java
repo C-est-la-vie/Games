@@ -14,28 +14,23 @@ public class Rules {
         //When we have add_two or add four, use the method AddCard
         if (card.getActions().equals(Actions.ADD_TWO)) {
             AddCard(card, player2, deck);
-            player.setTurn(true);
-            player2.setTurn(false);
         } else if (card.getActions().equals(Actions.ADD_FOUR)) {
             AddCard(card, player2, deck);
-            ChooseColor(card);
-            player.setTurn(true);
-            player2.setTurn(false);
         }
         //When we have wild card, use the method ChooseColor
         else if (card.getActions().equals(Actions.CHOOSE_COLOR)) {
-            ChooseColor(card);
             player.setTurn(false);
             player2.setTurn(true);
         }
         //When we have reverse card, use the method ChangeTurns
         else if (card.getActions().equals(Actions.REVERSE) || card.getActions().equals(Actions.SKIP_TURN)) {
-            player.setTurn(true);
-            player2.setTurn(false);
         } else {
             player.setTurn(false);
             player2.setTurn(true);
         }
+        if (card.getColor().equals("none") && !player.getName().equals("robot"))
+        {ChooseColor(card);}
+
 
     }
 
