@@ -56,7 +56,7 @@ public class Game {
         this.deck = new Deck();
         deck.mixCard();
         CreatePlayer(name, deck);
-        ShowFirstCard();
+        setFirstCard();
         SetRandomTurn();
         Play();
 
@@ -74,7 +74,6 @@ public class Game {
         } else {
             RobotsPlay();
         }
-        showLastCard();
     }
 
     private void RobotsPlay() {
@@ -83,6 +82,8 @@ public class Game {
         int cardToPlay = robotPlayer.chooseCard(card, robot.getCards());
         if (cardToPlay < 0) {
             deck.DrawCard(robot.getCards(), 1);
+            robot.setTurn(false);
+            player.setTurn(true);
         } else {
             var myCard = robot.getCards().get(cardToPlay);
             this.card.setColor(myCard.getColor());
@@ -97,8 +98,8 @@ public class Game {
             } else {
                 rule.checkAction(myCard, robot, player, deck);
             }
-            Play();
         }
+        Play();
     }
 
     public void ChangeColorMessage() {
@@ -127,13 +128,9 @@ public class Game {
 
     }
 
-    private void ShowFirstCard() {
-        var card = deck.StartCard();
-        this.card = card;
-        System.out.print(" _ _ _ _ \n" +
-                "|        |\n" +
-                "|" + card.getValue() + " " + card.getColor() + "|\n" +
-                "|_ _ _ _ |\n");
+    private void setFirstCard() {
+        this.card = deck.StartCard();
+
     }
 
     private void showLastCard() {
@@ -163,29 +160,35 @@ public class Game {
 
     //Play Card
     public void PlayCard() {
+        showLastCard();
         ShowPlayerCard();
         Scanner input = new Scanner(System.in);
         if (player.getTurn()) {
-            System.out.print("Play a card: /n");
             System.out.println("Choose 0 to draw a Card");
+            System.out.print("Play a card: \n");
 
             var index = input.nextInt() - 1;
             //Check that index is on array boundary
-            if (index == 0) {
+            if (index == -1) {
                 deck.DrawCard(robot.getCards(), 1);
+                robot.setTurn(true);
+                player.setTurn(false);
             } else {
                 CheckArrayBoundary(index);
                 // get card
                 var myCard = player.getCards().get(index);
-                player.getCards().remove(player.getCards().get(index));
-                rule.checkAction(myCard, player, robot, deck);
-                this.card.setColor(myCard.getColor());
-                this.card.setValue(myCard.getValue());
+                //Check that card respect the color or value of the las card.
+                if (rule.CheckColor(myCard)) {
+                    player.getCards().remove(player.getCards().get(index));
+                    rule.checkAction(myCard, player, robot, deck);
+                    this.card.setColor(myCard.getColor());
+                    this.card.setValue(myCard.getValue());
+                } else {
+                    PlayCard();
+                }
             }
             Play();
         }
-
-
     }
 
     // CheckArrayBoundary

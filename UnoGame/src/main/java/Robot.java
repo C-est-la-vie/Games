@@ -27,8 +27,7 @@ public class Robot {
             //Count how many I have
             List<Integer> sameColorCount = checkRuleColor(lastCard, robotCards);
             // check to see if I have a wild card and play it.
-            //TODO: TAke out the =
-            if (sameColorCount.size() >= 1 && checkWildCard(sameColorCount, robotCards)) {
+            if (sameColorCount.size() > 1 && checkWildCard(sameColorCount, robotCards)) {
                 return FindCardByUsingAListInteger(sameColorCount, robotCards);
             }   //Check if I have cards with the same value;
             else if (checkForCardValue(robotCards, lastCard.getValue())) {
@@ -48,7 +47,7 @@ public class Robot {
                     return AfterComparing(lastCard, robotCards, sameColorCount, valueCount);
                 }
             } else {
-                //TODO: Is this neccesarry
+                //TODO: Is this neccesary... Compare to first check Wild
                 //if I just have the same color then I want to know if I have a special card
                 if (checkWildCard(sameColorCount, robotCards)) {
                     // If I do then I want to play it
@@ -294,13 +293,13 @@ public class Robot {
     }
 
     private Boolean checkDuplicateValueCard(Card lastCard, List<Card> robotCards) {
-        int count = -1;
+        int count = 0;
         for (int i = 0; i < robotCards.size(); i++) {
             if (robotCards.get(i).getValue().equals(lastCard.getValue()) && !robotCards.get(i).getColor().equals(lastCard.getColor())) {
                 count++;
             }
         }
-        if (count > 0) {
+        if (count < 2) {
             return false;
         } else {
             return true;

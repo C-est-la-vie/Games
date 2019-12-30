@@ -18,12 +18,12 @@ public class Deck {
     }
 
 
-
-public Card StartCard(){
+    public Card StartCard() {
         Card card = cards.get(0);
         cards.remove(0);
         return card;
-}
+    }
+
     public void DrawCard(List<Card> playerCard, int times) {
         for (int x = 0; x < times; x++) {
             playerCard.add(cards.get(0));
@@ -39,13 +39,16 @@ public Card StartCard(){
             Card card = new Card();
             card.setColor(cards.get(i).getColor());
             card.setValue(cards.get(i).getValue());
+            card.setActions(cards.get(i).getActions());
             cards.get(i).setValue(cards.get(newIndex).getValue());
             cards.get(i).setColor(cards.get(newIndex).getColor());
+            cards.get(i).setActions(cards.get(newIndex).getActions());
             cards.get(newIndex).setColor(card.getColor());
             cards.get(newIndex).setValue(card.getValue());
+            cards.get(newIndex).setActions(card.getActions());
         }
     }
-//TODO: Change this to DealsCards
+
     public List<Card> DealCards() {
         List<Card> playerCard = new ArrayList<>();
         for (int i = 0; i < 7; i++) {
@@ -55,6 +58,7 @@ public Card StartCard(){
         }
         return playerCard;
     }
+
     private void MakingCards(List<Card> cards, String color, Actions action) {
         var y = 0;
         for (int index = 0; index < 19; index++, y++) {
