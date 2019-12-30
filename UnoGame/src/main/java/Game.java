@@ -63,14 +63,15 @@ public class Game {
     }
 
     public void Play() {
-        Uno();
         if (player.getTurn()) {
             rule.Winner(robot);
             System.out.print("\nIt's your turn\n");
             PlayCard();
+            Uno(player);
         } else {
             rule.Winner(player);
             RobotsPlay();
+            Uno(robot);
         }
     }
 
@@ -209,10 +210,10 @@ public class Game {
     }
 
     // Say UNO when left card is only one.
-    public void Uno() {
-        if (player.getCards().size() == 1 || robot.getCards().size() == 1) {
+    public void Uno(Player player) {
+        if (player.getCards().size() == 1) {
             uno = true;
-            System.out.println("Uno!");
+            System.out.println(player.getName() + ": Uno!");
             setUno(true);
         } else {
             setUno(false);

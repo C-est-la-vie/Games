@@ -84,7 +84,7 @@ public class Rules {
     public void Winner(Player player) {
         if (player.getCards().isEmpty()) {
             System.out.println(player.getName() + " wins!");
-            game.EndGame();
+            game.Menu();
         }
     }
 
