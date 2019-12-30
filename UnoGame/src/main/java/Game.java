@@ -165,12 +165,13 @@ public class Game {
             System.out.print("Play a card: \n");
 
             var index = input.nextInt() - 1;
-            //Check that index is on array boundary
+
             if (index == -1) {
-                deck.DrawCard(robot.getCards(), 1);
+                deck.DrawCard(player.getCards(), 1);
                 robot.setTurn(true);
                 player.setTurn(false);
             } else {
+                //Check that index is on array boundary
                 CheckArrayBoundary(index);
                 // get card
                 var myCard = player.getCards().get(index);
