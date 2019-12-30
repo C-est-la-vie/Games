@@ -89,7 +89,7 @@ public class Game {
     }
 
     private void ShowFirstCard() {
-       var card = deck.FirstCard();
+       var card = deck.StartCard();
         System.out.print(" _ _ _ _ \n" +
                 "|        |\n" +
                 "|  " + card.getValue() + " " + card.getColor()+ "|\n" +
@@ -170,10 +170,10 @@ public class Game {
 
     // Create player.
     private void CreatePlayer(String name, Deck deck) {
-        player = new Player(name, deck.StartCard());
+        player = new Player(name, deck.DealCards());
         robot = new Robot();
         robot.setName("robot");
-        robot.setCards(deck.StartCard());
+        robot.setCards(deck.DealCards());
     }
     public String getPlayerName(){
         return name;
