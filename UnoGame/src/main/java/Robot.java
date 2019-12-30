@@ -13,12 +13,26 @@ public class Robot extends Player {
         else if (checkCardsWithSameColor(lastCard.getColor(), robotCards)) {
             //Count how many I have
             List<Integer> sameColorCount = checkRuleColor(lastCard, robotCards);
-            //Check if I have cards with the same value;
-            if (checkForCardValue(robotCards, lastCard.getValue())) {
-                //How many cards with the same value & it should be different color.
-                List<Integer> valueCount = checkRuleValue(lastCard, robotCards);
-                return -4;
-                //More details
+            // check to see if I have a wild card and play it.
+            if (sameColorCount.size() >= 1 && checkWildCard(sameColorCount, robotCards)) {
+                return FindCardByUsingAListInteger(sameColorCount, robotCards);
+            }   //Check if I have cards with the same value;
+            else if (checkForCardValue(robotCards, lastCard.getValue())) {
+                //Check to see if I have more than one
+                if (checkDuplicateValueCard(lastCard, robotCards)) {
+                    var duplicateCards = GetDuplicateCards(lastCard, robotCards);
+                    //Choose the color of the card that I want to use
+                    String color = GetBestDuplicateValueCard(robotCards, duplicateCards);
+                    //Count how many cards of that color I have
+                    List<Integer> valueCount = checkRuleValue(robotCards, color);
+                    //Compare all possibilities
+                    return AfterComparing(lastCard, robotCards, sameColorCount, valueCount);
+                }// if I just have one card with the same value then
+                else {
+                    List<Integer> valueCount = checkRuleValue(lastCard, robotCards);
+                    //Compare all possibilities
+                    return AfterComparing(lastCard, robotCards, sameColorCount, valueCount);
+                }
             } else {
                 //if I just have the same color then I want to know if I have a special card
                 if (checkWildCard(sameColorCount, robotCards)) {
@@ -36,38 +50,83 @@ public class Robot extends Player {
         else if (checkForCardValue(robotCards, lastCard.getValue())) {
             //If I do have, how many cards with the same value?
             //If I have more than 1
-            // TODO: Finishing this options, there is the possibility that the cards have the same color
-            //or of having 3 cards with the same value
-//            if (checkDuplicateValueCard(lastCard, robotCards)) {
-//// I want to choose the one that with benefit me the most
-//                // Check quantity
-//                //TODO: I'm working here
-//                String[] colors = getColorsOfDuplicateValues();
-//                int fistColor = checkQuantity(colors[0],robotCards);
-//                int secondColor = checkQuantity(colors[1],robotCards);
-//                if(fistColor > secondColor){
-//                    //I want to choose to use the value that has the first color
-//
-//                }
-            //          } else {
-            // If I just have one with the same value.
-            //Then play that one.
-            return FindIndexCardByValue(robotCards, lastCard.getValue());
+            if (checkDuplicateValueCard(lastCard, robotCards)) {
+                var duplicateCards = GetDuplicateCards(lastCard, robotCards);
+                //Choose the color of the card that I want to use
+                String color = GetBestDuplicateValueCard(robotCards, duplicateCards);
+                //Count how many cards of that color I have
+                //return that one
+                return findCardByColorAndValue(lastCard.getValue(), color, robotCards);
+            } else {
+                // If I just have one with the same value.
+                //Then play that one.
+                return FindIndexCardByValue(robotCards, lastCard.getValue());
+            }
         }
-
         //If I have nothing check to see if I have a none color card
-        else if (
-
-                checkCardsWithSameColor("none", robotCards)) {
+        else if (checkCardsWithSameColor("none", robotCards)) {
             //If I have then Choose that one
             return getNoneColorCard(robotCards);
-
         }
-
         //If I don't then draw a card, return -1;
         else {
-            return -1;
+            return -2;
         }
+    }
+
+    private int findCardByColorAndValue(String value, String color, List<Card> robotCards) {
+        Card card = new Card();
+        card.setColor(color);
+        card.setValue(value);
+        return robotCards.indexOf(card);
+    }
+
+    private int AfterComparing(Card lastCard, List<Card> robotCards, List<Integer> sameColorCount, List<Integer> valueCount) {
+        if (sameColorCount.size() == valueCount.size()) {
+            if (new Random().nextInt() % 2 == 0) {
+                return randomChooseCardToPlay(sameColorCount);
+            } else {
+                return FindIndexCardByValue(robotCards, lastCard.getValue());
+            }
+        } else if (sameColorCount.size() >= valueCount.size()) {
+            //use sameColorCount
+            return randomChooseCardToPlay(sameColorCount);
+        } else {
+            //Use the value one
+            return FindIndexCardByValue(robotCards, lastCard.getValue());
+        }
+    }
+
+    private String GetBestDuplicateValueCard(List<Card> robotCards, List<Card> duplicateCards) {
+        // Count how many of each color I have and return color.
+        int count = 0;
+        int secondCount = 0;
+        String color = "";
+        for (int x = 0; x < duplicateCards.size(); x++) {
+            for (Card card : robotCards) {
+                if (card.getColor().equals(duplicateCards.get(x).getColor())) {
+                    count++;
+                }
+            }
+            if (count > secondCount) {
+                color = duplicateCards.get(x).getColor();
+                secondCount = count;
+                count -= secondCount;
+            }
+        }
+        return color;
+    }
+
+
+    private List<Card> GetDuplicateCards(Card lastCard, List<Card> robotCards) {
+        //Look for duplicate value cards
+        List<Card> duplicateList = new ArrayList<>();
+        for (Card card : robotCards) {
+            if (card.getValue().equals(lastCard.getValue()) && !card.getColor().equals(lastCard.getColor())) {
+                duplicateList.add(card);
+            }
+        }
+        return duplicateList;
     }
 
     // get a random card from the valid options to play
@@ -143,7 +202,18 @@ public class Robot extends Player {
         }
         return valueCount;
     }
-// Find Card by Value
+
+    public List<Integer> checkRuleValue(List<Card> robotCards, String color) {
+        List<Integer> valueCount = new ArrayList<>();
+        {
+            for (int j = 0; j < robotCards.size(); j++) {
+                if (robotCards.get(j).getColor().equals(color)) {
+                    valueCount.add(j);
+                }
+            }
+        }
+        return valueCount;
+    }
 
 
     //Check How many with the same value we have
@@ -171,16 +241,16 @@ public class Robot extends Player {
     }
 
 
-    //Check how many cards of one color are in a deck
-    private int checkQuantity(String color, List<Card> robotCards) {
-        int count = 0;
-        for (Card card : robotCards) {
-            if (card.getColor().equals(color)) {
-                return count++;
-            }
-        }
-        return count;
-    }
+//    //Check how many cards of one color are in a deck
+//    private int checkQuantity(String color, List<Card> robotCards) {
+//        int count = 0;
+//        for (Card card : robotCards) {
+//            if (card.getColor().equals(color)) {
+//                return count++;
+//            }
+//        }
+//        return count;
+//    }
 
 
     //Randomly choose between playing and drawing a card
@@ -220,9 +290,29 @@ public class Robot extends Player {
                 return x;
             }
         }
-        return 0;
+        return -1;
     }
 
+    //When using wild card set color
+    public String ChooseColor(List<Card> robotCards) {
+        int count = 0;
+        int secondCount = 0;
+        String color = "";
+        for (int x = 0; x < robotCards.size(); x++) {
+            for (Card card : robotCards) {
+                if (card.getColor().equals(robotCards.get(x).getColor())) {
+                    count++;
+                }
+            }
+            if (count > secondCount) {
+                color = robotCards.get(x).getColor();
+                secondCount = count;
+                count -= secondCount;
+            }
+        }
+        return color;
+
+    }
 
 }
 

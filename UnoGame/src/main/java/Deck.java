@@ -19,7 +19,6 @@ public class Deck {
 
 
 
-//TODO: Change this to StartCard
 public Card StartCard(){
         Card card = cards.get(0);
         cards.remove(0);
