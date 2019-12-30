@@ -27,7 +27,7 @@ public class Game {
         try {
             Scanner input = new Scanner(System.in);
             System.out.print("\nChoose one option from below" +
-                    "\n 1 : Start game from 0 " +
+                    "\n 1 : Start game " +
                     "\n 2 : Read Instructions" +
                     "\n 3 : End Game\n");
             var option = input.nextInt();

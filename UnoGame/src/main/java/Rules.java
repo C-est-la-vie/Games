@@ -72,6 +72,7 @@ public class Rules {
                 ChooseColor(card);
         }
         game.getLastCard().setColor(color);
+        card.setColor(color);
         game.ChangeColorMessage();
     }
 
