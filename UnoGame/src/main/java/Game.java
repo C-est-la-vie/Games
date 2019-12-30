@@ -150,7 +150,7 @@ public class Game {
         System.out.print("\nInstructions: " +
                 "During your turn, you'll see a message telling you that it's your time to play.\n" +
                 "Enter the number on the left side of the card that you want to play.\n" +
-                "If you don't have a card that you can play then enter \"d\" to draw a card from the pile.\n" +
+                "If you don't have a card that you can play then enter \"0\" to draw a card from the pile.\n" +
                 "Have fun!!\n");
         Menu();
     }
@@ -166,16 +166,22 @@ public class Game {
         ShowPlayerCard();
         Scanner input = new Scanner(System.in);
         if (player.getTurn()) {
-            System.out.print("Play a card: ");
+            System.out.print("Play a card: /n");
+            System.out.println("Choose 0 to draw a Card");
+
             var index = input.nextInt() - 1;
             //Check that index is on array boundary
-            CheckArrayBoundary(index);
-            // get card
-            var myCard = player.getCards().get(index);
-            player.getCards().remove(player.getCards().get(index));
-            rule.checkAction(myCard, player, robot, deck);
-            this.card.setColor(myCard.getColor());
-            this.card.setValue(myCard.getValue());
+            if (index == 0) {
+                deck.DrawCard(robot.getCards(), 1);
+            } else {
+                CheckArrayBoundary(index);
+                // get card
+                var myCard = player.getCards().get(index);
+                player.getCards().remove(player.getCards().get(index));
+                rule.checkAction(myCard, player, robot, deck);
+                this.card.setColor(myCard.getColor());
+                this.card.setValue(myCard.getValue());
+            }
             Play();
         }
 
