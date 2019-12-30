@@ -24,7 +24,7 @@ public class Game {
 
     //Menu
     public void Menu() {
-        try {
+ //       try {
             Scanner input = new Scanner(System.in);
             System.out.print("\nChoose one option from below" +
                     "\n 1 : Start game " +
@@ -44,11 +44,11 @@ public class Game {
                 default:
                     Menu();
             }
-        } catch (Exception e) {
-            System.out.println("That is not a valid option. Try with a number from 1 to 3");
-        }finally {
-            Menu();
-        }
+//        } catch (Exception e) {
+//          //  System.out.println("That is not a valid option. Try with a number from 1 to 3");
+//        }finally {
+//            Menu();
+//        }
 
     }
 
@@ -64,13 +64,13 @@ public class Game {
     }
 
     public void Play() {
+        rule.Winner(robot);
+        rule.Winner(player);
         if (player.getTurn()) {
-            rule.Winner(robot);
             System.out.print("\nIt's your turn\n");
             PlayCard();
 
         } else {
-            rule.Winner(player);
             RobotsPlay();
 
         }
