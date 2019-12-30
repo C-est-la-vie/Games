@@ -8,6 +8,7 @@ public class Game {
     private Deck deck;
     private Player player;
     private static Robot robot;
+    private boolean uno;
 
     //Welcome Message
     public void WelcomeMessage() {
@@ -151,7 +152,21 @@ public class Game {
         this.card = card;
 
     }
- // Say UNO
+ // Say UNO when left card is only one.
+    public void Uno() {
+        if (player.getCards().size() == 1 || robot.getCards().size() == 1) {
+            uno = true;
+            System.out.println("Uno!");
+        }
+    }
+
+    public void setUno(boolean uno) {
+        this.uno = uno;
+    }
+
+    public boolean getUno() {
+        return uno;
+    }
 
     // Create player.
     private void CreatePlayer(String name, Deck deck) {
