@@ -12,10 +12,16 @@ public class Rules {
     // method call Action
     public void checkAction(Card card, Player player, Player player2, Deck deck) {
         //When we have add_two or add four, use the method AddCard
-        if (card.getActions().equals(Actions.ADD_TWO) || card.getActions().equals(Actions.ADD_FOUR)) {
+        if (card.getActions().equals(Actions.ADD_TWO)) {
             AddCard(card, player2, deck);
-           player.setTurn(true);
-           player2.setTurn(false);
+            player.setTurn(true);
+            player.setTurn(false);
+        }
+        else if (card.getActions().equals(Actions.ADD_FOUR)) {
+                AddCard(card, player2, deck);
+                ChooseColor(card);
+                player.setTurn(true);
+                player2.setTurn(false);
         }
         //When we have wild card, use the method ChooseColor
         else if (card.getActions().equals(Actions.CHOOSE_COLOR)) {
@@ -25,6 +31,8 @@ public class Rules {
         }
         //When we have reverse card, use the method ChangeTurns
         else if (card.getActions().equals(Actions.REVERSE) || card.getActions().equals(Actions.SKIP_TURN)) {
+            player.setTurn(true);
+            player2.setTurn(false);
             game.PlayCard();
         } else {
             player.setTurn(false);
@@ -41,9 +49,10 @@ public class Rules {
             deck.DrawCard(player.getCards(), 2);
         } else if (card.getActions().equals(Actions.ADD_FOUR)) {
             deck.DrawCard(player.getCards(), 4);
+
         }
     }
-//TODO:Review this since we change the setGameRule Method.
+
     public void ChooseColor(Card card) {
         Scanner input = new Scanner(System.in);
         System.out.print("Choose a color: red (r), blue (b), green (g), yellow (y)");
