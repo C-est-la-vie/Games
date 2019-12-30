@@ -64,10 +64,6 @@ public class Game {
 
     public void Play() {
         Uno();
-        System.out.println("THis is the last card : " + this.card.getColor() + " " + this.card.getValue());
-        System.out.println("This is player's turn: " + player.getTurn());
-        System.out.println("This is robo's turn: " + robot.getTurn());
-
         if (player.getTurn()) {
             rule.Winner(robot);
             System.out.print("\nIt's your turn\n");
