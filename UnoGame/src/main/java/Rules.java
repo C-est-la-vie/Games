@@ -16,6 +16,8 @@ public class Rules {
             AddCard(card, player2, deck);
         } else if (card.getActions().equals(Actions.ADD_FOUR)) {
             AddCard(card, player2, deck);
+            player.setTurn(true);
+            player2.setTurn(false);
         }
         //When we have wild card, use the method ChooseColor
         else if (card.getActions().equals(Actions.CHOOSE_COLOR)) {
